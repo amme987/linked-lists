@@ -1,6 +1,6 @@
 import { Node } from './node.js';
 
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.firstNode = null;
   }
@@ -20,13 +20,9 @@ class LinkedList {
 
   // adds a new node containing value to the start of the list
   prepend(value) {
-    if (this.firstNode === null) {
-      this.firstNode = new Node(value);
-    } else {
-      let temp = new Node(value);
-      temp.nextNode = this.firstNode;
-      this.firstNode = temp;
-    }
+    let temp = new Node(value);
+    temp.nextNode = this.firstNode;
+    this.firstNode = temp;
   }
 
   // returns the total number of nodes in the list
@@ -72,32 +68,5 @@ class LinkedList {
     }
     arr.push('null');
     return arr.join(' -> ');
-
-    // if (this.firstNode === null) {
-    //   return 'null';
-    // } else {
-    //   let arr = [];
-    //   let temp = this.firstNode;
-    //   while (temp) {
-    //     arr.push(temp.value);
-    //     temp = temp.nextNode;
-    //   }
-    //   arr.push('null');
-    //   return arr.join(' -> ');
-    // }
   }
 }
-
-let test = new LinkedList();
-test.append('why');
-// console.log(test);
-
-test.prepend('what');
-// console.log(test.head());
-test.append('how');
-test.prepend('first');
-test.append('last');
-// console.log(JSON.stringify(test));
-// console.log(test.toString());
-console.log(test.toString());
-// test.toString();
