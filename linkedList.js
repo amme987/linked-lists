@@ -63,14 +63,29 @@ export class LinkedList {
 
   // removes the last element from the list
   pop() {
-    // let arr = [];
-    // let temp = this.firstNode;
-    // while (temp) {
-    //   arr.push(temp.value);
-    //   temp = temp.nextNode;
+    let temp = this.firstNode;
+    // console.log(temp);
+    if (temp === null || temp.nextNode === null) {
+      this.firstNode = null;
+    } else {
+      while (temp.nextNode.nextNode !== null) {
+        temp = temp.nextNode;
+
+        // console.log(temp);
+        // temp.nextNode = null;
+      }
+      temp.nextNode = null;
+    }
+
+    // if (this.firstNode === null) {
+    //   return null;
+    // } else {
+    //   let temp = this.firstNode;
+    //   while (temp.nextNode.nextNode !== null) {
+    //     temp = temp.nextNode;
+    //   }
+    //   temp.nextNode = null;
     // }
-    // arr.push('null');
-    // return arr.join(' -> ');
   }
 
   // returns true if the passed in value is in the list and otherwise returns false.
