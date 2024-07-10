@@ -31,18 +31,14 @@ class LinkedList {
 
   // returns the total number of nodes in the list
   size() {
-    if (this.firstNode === null) {
-      return 0;
-    } else {
-      let count = 0;
-      let temp = this.firstNode;
+    let count = 0;
+    let temp = this.firstNode;
 
-      while (temp !== null) {
-        temp = temp.nextNode;
-        count++;
-      }
-      return count;
+    while (temp) {
+      temp = temp.nextNode;
+      count++;
     }
+    return count;
   }
 
   // returns the first node in the list
@@ -67,7 +63,29 @@ class LinkedList {
 
   // represents your LinkedList objects as strings, so you can print them out and preview them in the console.
   // The format should be: (value) -> (value) -> (value) -> null
-  toString() {}
+  toString() {
+    let arr = [];
+    let temp = this.firstNode;
+    while (temp) {
+      arr.push(temp.value);
+      temp = temp.nextNode;
+    }
+    arr.push('null');
+    return arr.join(' -> ');
+
+    // if (this.firstNode === null) {
+    //   return 'null';
+    // } else {
+    //   let arr = [];
+    //   let temp = this.firstNode;
+    //   while (temp) {
+    //     arr.push(temp.value);
+    //     temp = temp.nextNode;
+    //   }
+    //   arr.push('null');
+    //   return arr.join(' -> ');
+    // }
+  }
 }
 
 let test = new LinkedList();
@@ -79,6 +97,7 @@ test.prepend('what');
 test.append('how');
 test.prepend('first');
 test.append('last');
-console.log(JSON.stringify(test));
-console.log(test.size());
-// console.log(test.firstNode);
+// console.log(JSON.stringify(test));
+// console.log(test.toString());
+console.log(test.toString());
+// test.toString();
