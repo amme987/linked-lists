@@ -1,16 +1,15 @@
-// This file is for testing purposes
+// This file is for listing purposes
 import { LinkedList } from './linkedList.js';
 
-let test = new LinkedList();
-test.append('why');
-// console.log(test);
+let list = new LinkedList();
 
-test.prepend('what');
-// console.log(test.head());
-test.append('how');
-test.prepend('first');
-test.append('last');
-// console.log(JSON.stringify(test));
-// console.log(test.toString());
-console.log(test.toString());
-// test.toString();
+list.append('one'); // one -> null
+list.prepend(2); // 2 -> one -> null
+list.append('last'); // 2 -> one -> last -> null
+list.prepend('first'); // first 2 -> one -> last -> null
+
+// console.log(list.size()); // 4
+// console.log(list.head()); // first
+console.log(list.tail()); // last
+console.log(list.toString()); // first 2 -> one -> last -> null
+// list.toString();

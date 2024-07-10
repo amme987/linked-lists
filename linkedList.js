@@ -39,17 +39,39 @@ export class LinkedList {
 
   // returns the first node in the list
   head() {
-    return this.firstNode;
+    if (this.firstNode !== null) {
+      return this.firstNode.value;
+    }
+    return null;
   }
 
   // returns the last node in the list
-  tail() {}
+  tail() {
+    if (this.firstNode === null) {
+      return null;
+    } else {
+      let temp = this.firstNode;
+      while (temp.nextNode !== null) {
+        temp = temp.nextNode;
+      }
+      return temp.value;
+    }
+  }
 
   // returns the node at the given index
   at(index) {}
 
   // removes the last element from the list
-  pop() {}
+  pop() {
+    // let arr = [];
+    // let temp = this.firstNode;
+    // while (temp) {
+    //   arr.push(temp.value);
+    //   temp = temp.nextNode;
+    // }
+    // arr.push('null');
+    // return arr.join(' -> ');
+  }
 
   // returns true if the passed in value is in the list and otherwise returns false.
   contains(value) {}
