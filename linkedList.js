@@ -25,20 +25,24 @@ class LinkedList {
     } else {
       let temp = new Node(value);
       temp.nextNode = this.firstNode;
-      // console.log(this.head);
       this.firstNode = temp;
-      // console.log(node.nextNode);
     }
   }
 
   // returns the total number of nodes in the list
   size() {
-    let count = 0;
-    while (this.value !== null) {
-      this.nextNode;
-      count++;
+    if (this.firstNode === null) {
+      return 0;
+    } else {
+      let count = 0;
+      let temp = this.firstNode;
+
+      while (temp !== null) {
+        temp = temp.nextNode;
+        count++;
+      }
+      return count;
     }
-    return count;
   }
 
   // returns the first node in the list
@@ -74,5 +78,7 @@ test.prepend('what');
 // console.log(test.head());
 test.append('how');
 test.prepend('first');
+test.append('last');
 console.log(JSON.stringify(test));
-// console.log(test.prepend('ugh'));
+console.log(test.size());
+// console.log(test.firstNode);
