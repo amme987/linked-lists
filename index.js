@@ -13,8 +13,11 @@ console.log(list.head()); // first
 console.log(list.tail()); // last
 console.log(list.toString()); // first -> 2 -> one -> last -> null
 
-console.log(list.contains(2)); // true
+console.log(list.contains('last')); // true
 console.log(list.contains('gray')); //false
+
+console.log(list.find(2)); // 1
+console.log(list.find('last')); //3
 
 list.pop();
 console.log(list.toString()); // first -> 2 -> one -> null

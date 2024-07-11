@@ -87,7 +87,7 @@ export class LinkedList {
   // returns true if the passed in value is in the list and otherwise returns false.
   contains(value) {
     let temp = this.firstNode;
-    while (temp !== null && temp.nextNode !== null) {
+    while (temp !== null && temp) {
       if (temp.value === value) {
         return true;
       }
@@ -97,7 +97,18 @@ export class LinkedList {
   }
 
   // returns the index of the node containing value, or null if not found.
-  find(value) {}
+  find(value) {
+    let count = 0;
+    let temp = this.firstNode;
+    while (temp !== null && temp) {
+      if (temp.value === value) {
+        return count;
+      }
+      temp = temp.nextNode;
+      count++;
+    }
+    return null;
+  }
 
   // represents your LinkedList objects as strings, so you can print them out and preview them in the console.
   // The format should be: (value) -> (value) -> (value) -> null
