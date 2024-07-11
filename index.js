@@ -13,6 +13,9 @@ console.log(list.head()); // first
 console.log(list.tail()); // last
 console.log(list.toString()); // first -> 2 -> one -> last -> null
 
+console.log(list.contains(2)); // true
+console.log(list.contains('gray')); //false
+
 list.pop();
 console.log(list.toString()); // first -> 2 -> one -> null
 

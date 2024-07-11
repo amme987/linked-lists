@@ -59,37 +59,42 @@ export class LinkedList {
   }
 
   // returns the node at the given index
-  at(index) {}
+  at(index) {
+    if (this.firstNode === null) {
+      return null;
+    } else {
+      let temp = this.firstNode;
+      while (temp.nextNode !== null) {
+        temp = temp.nextNode;
+      }
+      return temp.value;
+    }
+  }
 
   // removes the last element from the list
   pop() {
     let temp = this.firstNode;
-    // console.log(temp);
     if (temp === null || temp.nextNode === null) {
       this.firstNode = null;
     } else {
       while (temp.nextNode.nextNode !== null) {
         temp = temp.nextNode;
-
-        // console.log(temp);
-        // temp.nextNode = null;
       }
       temp.nextNode = null;
     }
-
-    // if (this.firstNode === null) {
-    //   return null;
-    // } else {
-    //   let temp = this.firstNode;
-    //   while (temp.nextNode.nextNode !== null) {
-    //     temp = temp.nextNode;
-    //   }
-    //   temp.nextNode = null;
-    // }
   }
 
   // returns true if the passed in value is in the list and otherwise returns false.
-  contains(value) {}
+  contains(value) {
+    let temp = this.firstNode;
+    while (temp !== null && temp.nextNode !== null) {
+      if (temp.value === value) {
+        return true;
+      }
+      temp = temp.nextNode;
+    }
+    return false;
+  }
 
   // returns the index of the node containing value, or null if not found.
   find(value) {}
