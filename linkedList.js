@@ -110,6 +110,31 @@ export class LinkedList {
     return null;
   }
 
+  // that inserts a new node with the provided value at the given index.
+  insertAt(value, index) {
+    if (this.firstNode === null || index === 0) {
+      this.prepend(value);
+    } else {
+      let count = 0;
+      let prev;
+      let temp = this.firstNode;
+      let newNode = new Node(value);
+      while (count !== index) {
+        prev = temp;
+        temp = temp.nextNode;
+        count++;
+        console.log(`temp: ${JSON.stringify(temp)}`);
+      }
+      console.log(`tempout: ${JSON.stringify(temp)}`);
+
+      prev.nextNode = newNode;
+      newNode.nextNode = temp;
+    }
+  }
+
+  //  that removes the node at the given index.
+  removeAt(index) {}
+
   // represents your LinkedList objects as strings, so you can print them out and preview them in the console.
   // The format should be: (value) -> (value) -> (value) -> null
   toString() {

@@ -22,13 +22,16 @@ console.log(list.find('last')); //3
 list.pop();
 console.log(list.toString()); // first -> 2 -> one -> null
 
+list.insertAt('skull', 2);
+console.log(list.toString()); // first -> 2 -> skull -> one -> null
+
+list.pop();
+console.log(list.toString()); // first -> 2 -> skull -> null
+
 list.pop();
 console.log(list.toString()); // first -> 2 -> null
 
 list.pop();
-console.log(list.toString()); // first -> null
-
-list.pop();
 // console.log(list);
-console.log(list.toString()); // null
+console.log(list.toString()); // first -> null
 // list.toString();
