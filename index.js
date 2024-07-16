@@ -25,6 +25,9 @@ console.log(list.toString()); // first -> 2 -> one -> null
 list.insertAt('skull', 2);
 console.log(list.toString()); // first -> 2 -> skull -> one -> null
 
+list.removeAt(2);
+console.log(list.toString());
+
 list.pop();
 console.log(list.toString()); // first -> 2 -> skull -> null
 

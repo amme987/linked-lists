@@ -123,9 +123,9 @@ export class LinkedList {
         prev = temp;
         temp = temp.nextNode;
         count++;
-        console.log(`temp: ${JSON.stringify(temp)}`);
+        // console.log(`temp: ${JSON.stringify(temp)}`);
       }
-      console.log(`tempout: ${JSON.stringify(temp)}`);
+      // console.log(`tempout: ${JSON.stringify(temp)}`);
 
       prev.nextNode = newNode;
       newNode.nextNode = temp;
@@ -133,7 +133,24 @@ export class LinkedList {
   }
 
   //  that removes the node at the given index.
-  removeAt(index) {}
+  removeAt(index) {
+    if (this.firstNode === null || this.size() === 1) {
+      this.firstNode = null;
+    } else if (index === 0) {
+      this.firstNode = this.firstNode.nextNode;
+    } else {
+      let count = 0;
+      let prev;
+      let temp = this.firstNode;
+      while (count !== index) {
+        prev = temp;
+        temp = temp.nextNode;
+        count++;
+      }
+
+      prev.nextNode = temp.nextNode;
+    }
+  }
 
   // represents your LinkedList objects as strings, so you can print them out and preview them in the console.
   // The format should be: (value) -> (value) -> (value) -> null
