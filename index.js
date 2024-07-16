@@ -13,6 +13,8 @@ console.log(list.head()); // first
 console.log(list.tail()); // last
 console.log(list.toString()); // first -> 2 -> one -> last -> null
 
+console.log(list.at(2)); // one
+
 console.log(list.contains('last')); // true
 console.log(list.contains('gray')); //false
 
@@ -26,15 +28,13 @@ list.insertAt('skull', 2);
 console.log(list.toString()); // first -> 2 -> skull -> one -> null
 
 list.removeAt(2);
-console.log(list.toString());
-
-list.pop();
-console.log(list.toString()); // first -> 2 -> skull -> null
+console.log(list.toString()); // first -> 2 -> one -> null
 
 list.pop();
 console.log(list.toString()); // first -> 2 -> null
 
 list.pop();
-// console.log(list);
 console.log(list.toString()); // first -> null
-// list.toString();
+
+list.pop();
+console.log(list.toString()); // null

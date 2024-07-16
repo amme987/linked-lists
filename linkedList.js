@@ -60,12 +60,16 @@ export class LinkedList {
 
   // returns the node at the given index
   at(index) {
-    if (this.firstNode === null) {
+    if (index < 0 || index >= this.size()) {
+      return undefined;
+    } else if (index === 0 && this.firstNode === null) {
       return null;
     } else {
+      let count = 0;
       let temp = this.firstNode;
-      while (temp.nextNode !== null) {
+      while (count !== index) {
         temp = temp.nextNode;
+        count++;
       }
       return temp.value;
     }
@@ -112,21 +116,18 @@ export class LinkedList {
 
   // that inserts a new node with the provided value at the given index.
   insertAt(value, index) {
-    if (this.firstNode === null || index === 0) {
+    if (this.firstNode === null || index <= 0) {
       this.prepend(value);
     } else {
       let count = 0;
       let prev;
       let temp = this.firstNode;
       let newNode = new Node(value);
-      while (count !== index) {
+      while (count !== index && temp !== null) {
         prev = temp;
         temp = temp.nextNode;
         count++;
-        // console.log(`temp: ${JSON.stringify(temp)}`);
       }
-      // console.log(`tempout: ${JSON.stringify(temp)}`);
-
       prev.nextNode = newNode;
       newNode.nextNode = temp;
     }
@@ -134,20 +135,21 @@ export class LinkedList {
 
   //  that removes the node at the given index.
   removeAt(index) {
+    let temp = this.firstNode;
     if (this.firstNode === null || this.size() === 1) {
       this.firstNode = null;
     } else if (index === 0) {
-      this.firstNode = this.firstNode.nextNode;
-    } else {
+      this.firstNode = temp.nextNode;
+    } else if (index < 0 || index >= this.size) {
+    } // do nothing
+    else {
       let count = 0;
       let prev;
-      let temp = this.firstNode;
       while (count !== index) {
         prev = temp;
         temp = temp.nextNode;
         count++;
       }
-
       prev.nextNode = temp.nextNode;
     }
   }
