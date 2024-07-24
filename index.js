@@ -1,4 +1,4 @@
-// This file is for listing purposes
+// This file is for testing purposes
 import { LinkedList } from './linkedList.js';
 
 let list = new LinkedList();
